@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+				<section class="content-box background-white box-2 zerogrid">
+					<div class="row wrap-box"><!--Start Box-->
+						<div class="col-1-2 f-right">
+							<div class="wrap-col">
+								<div style="padding-top: 60px;">
+									<center><img src="{{ club_category.logo.url }}"w></center>
+								</div>
+							</div>
+						</div>
+						<div class="col-1-2">
+							<div class="wrap-col">
+								<div class="row">
+									<div class="t-center" style="padding-top: 30px;">
+										<div class="header">
+										</div>
+										<strong>{{ club_category.title }}</strong><br/><br>
+										{% for club in clubs %}
+										<span>{{ club.name }}</span><br/><br>
+										<a href="#" class="button" >More Details</a>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+{% endblock %}
