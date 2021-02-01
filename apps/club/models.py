@@ -6,7 +6,7 @@ from apps.category.models import CategoryClub
 
 class Club(models.Model):
     name = models.CharField(max_length=255, blank=False)
-    type = models.ForeignKey(CategoryClub, related_name='clubs', on_delete=models.DO_NOTHING)
+    type = models.ForeignKey(CategoryClub, related_name='club_types', on_delete=models.DO_NOTHING)
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
     phone = models.CharField(max_length=14, blank=True, help_text=_('Contact phone number'))
     area = models.IntegerField()
@@ -14,6 +14,11 @@ class Club(models.Model):
 
     def __str__(self):
         return f'{self.type}-{self.name}'
+
+    @property
+    def image_url(self):
+        if self.images and hasattr(self.images, 'url'):
+            return self.images.url
 
 
 class ClubImage(models.Model):

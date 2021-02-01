@@ -12,6 +12,11 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}-{self.sub_title}'
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 
 class ExtendPost(models.Model):
     header = models.CharField(max_length=255)
@@ -19,5 +24,10 @@ class ExtendPost(models.Model):
     images = models.ImageField(upload_to='post_images', blank=True)
     comment = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
 
+    def __str__(self):
+        return f'{self.comment}'
 
-
+    @property
+    def image_url(self):
+        if self.images and hasattr(self.images, 'url'):
+            return self.images.url

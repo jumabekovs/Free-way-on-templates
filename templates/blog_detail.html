@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+		<section id="container">
+			<div class="wrap-container">
+				<!-----------------content-box-1-------------------->
+				{% for posts in post_category %}
+				<section class="content-box background-gray box-1 zerogrid">
+					<div class="row wrap-box"><!--Start Box-->
+<!--						<div class="col-1-2">-->
+							<div class="wrap-col">
+								<div style="padding-top: 60px;">
+									<center><img src=""></center>
+								</div>
+							</div>
+<!--						</div>-->
+<!--						<div class="col-1-2">-->
+							<div class="wrap-col">
+								<div class="row">
+									<div class="t-center" style="padding-top: 30px;">
+										<div class="header">
+											<h1>{{ post_category_name.name }}</h1>
+											<h2>{{ post_category_name.title }}</h2>
+											<img src="{{ post_category_name.logo_url | default_if_none:'#' }}" alt="">
+											<h2>Title  <span class="color-red">{{ posts.title }}</span></h2>
+										</div>
+										<strong>{{ posts.subtitle }}</strong><br/><br>
+										<span>{{ posts.content }}</span><br/><br>
+									</div>
+								</div>
+							</div>
+<!--						</div>-->
+					</div>
+				</section>
+
+				{% endfor %}
+{% endblock %}

@@ -1,12 +1,20 @@
 from django.shortcuts import render
 
 from .models import Post
+from ..category.models import CategoryPost
 
 
 def home_page(request):
-    posts = Post.objects.all()
-    return render(request, 'index.html', {"posts": posts})
+    posts = Post.objects.all()[:2]
+    return render(request, 'index.html', locals())
 
 
 def blog_page(request):
-    return render(request, 'blog.html')
+    posts = Post.objects.all()
+    return render(request, 'blog.html', locals())
+
+
+def blog_detail(request, title):  # this function requires title to filter by a category
+    post_category = Post.objects.filter(title=title)
+    post_category_name = CategoryPost.objects.get(name=title)
+    return render(request, 'blog_detail.html', locals())

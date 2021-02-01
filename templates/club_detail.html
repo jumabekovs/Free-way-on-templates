@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+				<section class="content-box background-white box-2 zerogrid">
+					<div class="row wrap-box"><!--Start Box-->
+						<div class="col-1-2 f-right">
+							<div class="wrap-col">
+								<div style="padding-top: 60px;">
+									<center><img src="{{ club_category.logo.url }}"></center>
+								</div>
+							</div>
+						</div>
+						<div class="col-1-2">
+							<div class="wrap-col">
+								<div class="row">
+									<div class="t-center" style="padding-top: 30px;">
+										<div class="header">
+										</div>
+										<h1><strong>{{ club_name.title }}</strong></h1><br/><br>
+										<h3><strong><span class="color-red">{{ club_name.name }}</span></strong></h3><br>
+										<strong>{{ club_name.address }}</strong>
+										<strong>{{ club_name.email }}</strong>
+										<strong>{{ club_name.area }}</strong>
+										<br><strong>{{ club_name.phone }}</strong><br/><br>
+											<center><img src="{{ club_name.image_url }}"></center>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+{% endblock %}

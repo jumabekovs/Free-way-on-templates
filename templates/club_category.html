@@ -7,7 +7,7 @@
 						<div class="col-1-2 f-right">
 							<div class="wrap-col">
 								<div style="padding-top: 60px;">
-									<center><img src="{{ club_category.logo.url }}"w></center>
+									<center><img src="{{ club_category.logo.url }}"></center>
 								</div>
 							</div>
 						</div>
@@ -17,11 +17,15 @@
 									<div class="t-center" style="padding-top: 30px;">
 										<div class="header">
 										</div>
-										<strong>{{ club_category.title }}</strong><br/><br>
-										{% for club in clubs %}
-										<span>{{ club.name }}</span><br/><br>
-										<a href="#" class="button" >More Details</a>
+										<h1><strong>{{ club_category.title }}</strong></h1><br/><br>
+										{% for club in club_type %}
+										<h3><strong><a href="{% url 'club_detail' club.name %}"><span class="color-red">{{ club.name }}</span></a></strong></h3><br>
+										<strong>{{ club.address }}</strong>
+										<br><strong>{{ club.phone }}</strong><br/><br>
+											<center><img src="{{ club.get_image }}"></center>
 										{% endfor %}
+										<a href="#" class="button" >More Details</a>
+
 									</div>
 								</div>
 							</div>

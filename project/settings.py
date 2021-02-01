@@ -37,13 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'ckeditor_uploader',
+    'ckeditor',
     # apps
     'apps.category',
     'apps.club',
     'apps.customer',
     'apps.offer',
     'apps.post',
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -84,8 +88,12 @@ AUTH_USER_MODEL = 'customer.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'my_db',
+        'USER': 'postgres',
+        'PASSWORD': 'willpower229',
+        'HOST': 'localhost,127.0.0.1',
+        'PORT': 5432,
     }
 }
 
@@ -131,7 +139,12 @@ MEDIA_URL = '/images/'
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT = [
+    BASE_DIR / 'static/images',
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+CKEDITOR_UPLOAD_PATH = 'uploads/'

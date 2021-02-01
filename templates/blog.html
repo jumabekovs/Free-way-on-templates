@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-</body>
-</html>
+
+		<section id="container">
+			<div class="wrap-container">
+				<!-----------------content-box-1-------------------->
+				strong>{{ post.sub_title }}</strong><br/><br>
+
+				<span>{{ post.content }}</span><br/><br>
+				{% for post in posts %}
+				<section class="content-box background-gray box-1 zerogrid">
+					<div class="row wrap-box"><!--Start Box-->
+<!--						<div class="col-1-2">-->
+							<div class="wrap-col">
+								<div style="padding-top: 60px;">
+									<center><img src=""></center>
+								</div>
+							</div>
+<!--						</div>-->
+<!--						<div class="col-1-2">-->
+							<div class="wrap-col">
+								<div class="row">
+									<div class="t-center" style="padding-top: 30px;">
+										<div class="header">
+											<h2>Title  <span class="color-red">{{ post.title }}</span></h2>
+										</div>
+										<strong>{{ post.sub_title }}</strong><br/><br>
+										<span>{{ post.content }}</span><br/><br>
+										<a href="{% url 'blog_detail' post.title %}" class="button" >More Details</a>
+									</div>
+								</div>
+							</div>
+<!--						</div>-->
+					</div>
+				</section>
+				{% endfor %}
+{% endblock %}

@@ -13,14 +13,14 @@
 				{% for post in posts %}
 				<section class="content-box background-gray box-1 zerogrid">
 					<div class="row wrap-box"><!--Start Box-->
-						<div class="col-1-2">
+<!--						<div class="col-1-2">-->
 							<div class="wrap-col">
 								<div style="padding-top: 60px;">
 									<center><img src=""></center>
 								</div>
 							</div>
-						</div>
-						<div class="col-1-2">
+<!--						</div>-->
+<!--						<div class="col-1-2">-->
 							<div class="wrap-col">
 								<div class="row">
 									<div class="t-center" style="padding-top: 30px;">
@@ -29,11 +29,11 @@
 										</div>
 										<strong>{{ post.subtitle }}</strong><br/><br>
 										<span>{{ post.content }}</span><br/><br>
-										<a href="#" class="button" >More Details</a>
+										<a href="{% url 'blog' %}" class="button" >More Details</a>
 									</div>
 								</div>
 							</div>
-						</div>
+<!--						</div>-->
 					</div>
 				</section>
 				{% endfor %}
