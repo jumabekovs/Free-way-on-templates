@@ -54,10 +54,10 @@ class CategoryClub(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-    @property
-    def logo_url(self):
-        if self.logo and hasattr(self.logo, 'url'):
-            return self.logo.url
+    # @property
+    # def logo_url(self):
+    #     if self.logo and hasattr(self.logo, 'url'):
+    #         return self.logo.url
 
 
 class CategoryOffer(models.Model):

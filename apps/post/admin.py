@@ -4,7 +4,7 @@ from django.contrib.gis import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
-class NewAdminForm(forms.ModelForm):
+class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
@@ -12,15 +12,21 @@ class NewAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-class CommentAdmin(admin.TabularInline):
-    model = ExtendPost
-    max_num = 1
-    extra = 3
+class ExtendPostAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = ExtendPost
+        fields = '__all__'
+
+
+class ExtendPostAdmin(admin.ModelAdmin):
+    form = ExtendPostAdminForm
 
 
 class PostAdmin(admin.ModelAdmin):
-    form = NewAdminForm
-    inlines = [CommentAdmin, ]
+    form = PostAdminForm
 
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(ExtendPost, ExtendPostAdmin)
