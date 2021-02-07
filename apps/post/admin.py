@@ -6,6 +6,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
+    list_filter = ('title', )
 
     class Meta:
         model = Post

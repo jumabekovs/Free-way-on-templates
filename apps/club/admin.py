@@ -2,14 +2,14 @@ from django.contrib import admin
 from .models import Club, ClubImage
 
 
-class ClubImageAdmin(admin.TabularInline):
-    model = ClubImage
-    max_num = 5
-    extra = 0
+# class ClubImageAdmin(admin.TabularInline):
+#     model = ClubImage
+#     max_num = 5
+#     extra = 0
+#
+#
+# class ClubAdmin(admin.ModelAdmin):
+#     inlines = [ClubImageAdmin, ]
 
 
-class ClubAdmin(admin.ModelAdmin):
-    inlines = [ClubImageAdmin, ]
-
-
-admin.site.register(Club, ClubAdmin)
+admin.site.register(Club)

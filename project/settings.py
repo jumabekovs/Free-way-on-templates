@@ -26,8 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'ckeditor_uploader',
     'ckeditor',
+    'captcha',
     # apps
     'apps.category',
     'apps.club',
@@ -78,7 +80,7 @@ AUTH_USER_MODEL = 'customer.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'my_db_psql',
+        'NAME': 'my_db_final',
         'USER': 'postgres',
         'PASSWORD': 'willpower229',
         'HOST': 'localhost,127.0.0.1',
@@ -139,3 +141,11 @@ MEDIA_ROOT = os.path.join(
 )
 
 CKEDITOR_UPLOAD_PATH = [BASE_DIR / 'static/uploads/', ]
+
+
+RECAPTCHA_PUBLIC_KEY = 'MyRecaptchaKey123'
+RECAPTCHA_PRIVATE_KEY = 'MyRecaptchaPrivateKey456'
+
+RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', }
+RECAPTCHA_DOMAIN = 'www.recaptcha.net'
+

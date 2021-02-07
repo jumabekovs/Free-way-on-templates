@@ -6,7 +6,6 @@ from apps.category.models import CategoryOffer
 OFFER_DURATION = (
     ('1 MONTH', _('1 месяц')),
     ('3 MONTHS', _('3 месяца')),
-    ('12 MONTHS', _('Круглый Год')),
 )
 
 

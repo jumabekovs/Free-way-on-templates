@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from apps.category.models import CategoryClub
-from apps.club.models import Club
+from apps.club.models import Club, ClubImage
 
 
 def club_categories(request, name):  # this function requires the name of a category
@@ -12,5 +12,6 @@ def club_categories(request, name):  # this function requires the name of a cate
 
 def club_detail(request, name):
     club_name = Club.objects.get(name=name)
+    club_images = ClubImage.objects.filter()     # id required
     return render(request, 'club_detail.html', locals())
 

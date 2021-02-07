@@ -6,9 +6,9 @@
 		<section id="container">
 			<div class="wrap-container">
 				<!-----------------content-box-1-------------------->
-				strong>{{ post.sub_title }}</strong><br/><br>
+<!--				strong>{{ post.sub_title | safe }}</strong><br/><br>-->
 
-				<span>{{ post.content }}</span><br/><br>
+<!--				<span>{{ post.content | safe }}</span><br/><br>-->
 				{% for post in posts %}
 				<section class="content-box background-gray box-1 zerogrid">
 					<div class="row wrap-box"><!--Start Box-->
@@ -24,16 +24,20 @@
 								<div class="row">
 									<div class="t-center" style="padding-top: 30px;">
 										<div class="header">
-											<h2>Title  <span class="color-red">{{ post.title }}</span></h2>
+											<h2>{{ post.title }}<span class="color-red">{{ post.sub_title }}</span></h2>
 										</div>
-										<strong>{{ post.sub_title }}</strong><br/><br>
-										<span>{{ post.content }}</span><br/><br>
+										<br/><br>
+										<span>{{ post.content | safe }}</span><br/><br>
+										<img src="{{ post.image.url }}" alt="">
 										<a href="{% url 'blog_detail' post.title %}" class="button" >More Details</a>
 									</div>
 								</div>
 							</div>
-<!--						</div>-->
+						</div>
 					</div>
 				</section>
+
+
+
 				{% endfor %}
 {% endblock %}

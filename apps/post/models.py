@@ -20,7 +20,7 @@ class ExtendPost(models.Model):
     images = models.ImageField(upload_to='post_images', blank=True)
 
     def __str__(self):
-        return f'{self.header}'
+        return f'{self.post}'
 
 
 

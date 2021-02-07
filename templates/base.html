@@ -48,6 +48,15 @@
 
 
     {% block content %}
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<div class="g-recaptcha" data-sitekey="6LeH70oaAAAAANYOL4iJMLHsO8DPDfLxTRtvX23q"></div>
+
+		<button type="submit" class="btn btn-primary">Post</button>
+	  </form>
     {% endblock %}
 
 		<br>
