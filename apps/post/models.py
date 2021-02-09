@@ -14,13 +14,12 @@ class Post(models.Model):
 
 
 class ExtendPost(models.Model):
-    post = models.ForeignKey(Post, related_name='extending_post', on_delete=models.CASCADE)
-    header = models.CharField(max_length=255)
+    post = models.ForeignKey(Post, related_name='extend_post', on_delete=models.CASCADE)
+    header = models.CharField(max_length=255, blank=True)
     text = models.TextField()
     images = models.ImageField(upload_to='post_images', blank=True)
 
     def __str__(self):
-        return f'{self.post}'
-
+        return f'{self.header}'
 
 

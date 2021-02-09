@@ -10,10 +10,6 @@ GENDER_SEGREGATION = (
 )
 
 
-class ClubImage(models.Model):
-    images = models.FileField(default='default_club_logo.jpg', upload_to='club_images', blank=True, null=True)
-
-
 class Club(models.Model):
     name = models.CharField(max_length=255, blank=False)
     type = models.ForeignKey(CategoryClub, related_name='club_types', on_delete=models.DO_NOTHING)
@@ -22,13 +18,16 @@ class Club(models.Model):
     phone = models.CharField(max_length=14, blank=True, help_text=_('Contact phone number'))
     area = models.IntegerField()
     address = models.CharField(max_length=400, unique=True, blank=False)
-    image = models.ForeignKey(ClubImage, related_name='club', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.type}-{self.name}'
+
+
+class ClubImage(models.Model):
+    images = models.FileField(default='default_club_logo.jpg', upload_to='club_images', blank=True, null=True)
+    club = models.ForeignKey(Club, related_name='club', on_delete=models.CASCADE)
 
     @property
     def image_url(self):
         if self.images and hasattr(self.images, 'url'):
             return self.images.url
-

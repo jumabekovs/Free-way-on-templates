@@ -13,21 +13,15 @@ class PostAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ExtendPostAdminForm(forms.ModelForm):
-    text = forms.CharField(widget=CKEditorUploadingWidget())
-
-    class Meta:
-        model = ExtendPost
-        fields = '__all__'
-
-
-class ExtendPostAdmin(admin.ModelAdmin):
-    form = ExtendPostAdminForm
+class ExtendPostInline(admin.TabularInline):
+    model = ExtendPost
+    max_num = 5
+    extra = 2
 
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
+    inlines = [ExtendPostInline, ]
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(ExtendPost, ExtendPostAdmin)

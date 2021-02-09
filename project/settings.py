@@ -80,7 +80,7 @@ AUTH_USER_MODEL = 'customer.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'my_db_final',
+        'NAME': 'my_project_db',
         'USER': 'postgres',
         'PASSWORD': 'willpower229',
         'HOST': 'localhost,127.0.0.1',
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 

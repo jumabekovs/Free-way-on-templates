@@ -7,7 +7,7 @@
 						<div class="col-1-2 f-right">
 							<div class="wrap-col">
 								<div style="padding-top: 60px;">
-									<center><img src="{{ club_category.logo.url }}"></center>
+									<center><img src="{{ club_category.logo.url | default_if_none:'#'  }}"></center>
 								</div>
 							</div>
 						</div>

@@ -7,109 +7,43 @@
 
 
 
-		<section id="container">
-			<div class="wrap-container">
-				<!-----------------content-box-1-------------------->
-				{% for post in posts %}
-				<section class="content-box background-gray box-1 zerogrid">
-					<div class="row wrap-box"><!--Start Box-->
+<section id="container">
+	<div class="wrap-container">
+		<!-----------------content-box-1-------------------->
+		<!--				strong>{{ post.sub_title | safe }}</strong><br/><br>-->
+
+		<!--				<span>{{ post.content | safe }}</span><br/><br>-->
+		{% for post in posts %}
+
+		<section class="content-box background-gray box-1 zerogrid">
+			<div class="row wrap-box"><!--Start Box-->
 <!--						<div class="col-1-2">-->
-							<div class="wrap-col">
-								<div style="padding-top: 60px;">
+						<div class="wrap-col">
+							<div style="padding-top: 60px;">
 									<center><img src=""></center>
 								</div>
-							</div>
-<!--						</div>-->
-<!--						<div class="col-1-2">-->
-							<div class="wrap-col">
-								<div class="row">
+						</div>
+						<!--						</div>-->
+						<!--						<div class="col-1-2">-->
+						<div class="wrap-col">
+							<div class="row">
 									<div class="t-center" style="padding-top: 30px;">
 										<div class="header">
-											<h2>Title  <span class="color-red">{{ post.title }}</span></h2>
+											<h2>{{ post.title }}<span class="color-red">{{ post.sub_title }}</span></h2>
 										</div>
-										<strong>{{ post.subtitle }}</strong><br/><br>
-										<span>{{ post.content }}</span><br/><br>
-										<a href="{% url 'blog' %}" class="button" >More Details</a>
+										<br/><br>
+										<span>{{ post.content | safe }}</span><br/><br>
+										<img src="{{ post.image.url }}" alt="">
+										<a href="{% url 'add_post'  %}" class="button" >Add post</a>
+										<a href="{% url 'blog_detail' post.title %}" class="button" >See all</a>
 									</div>
 								</div>
-							</div>
-<!--						</div>-->
+						</div>
 					</div>
-				</section>
+	</div>
+</section>
+
+
+
 				{% endfor %}
-				<!-----------------content-box-2-------------------->
-<!--				<section class="content-box background-white box-2 zerogrid">-->
-<!--					<div class="row wrap-box">&lt;!&ndash;Start Box&ndash;&gt;-->
-<!--						<div class="col-1-2 f-right">-->
-<!--							<div class="wrap-col">-->
-<!--								<div style="padding-top: 60px;">-->
-<!--									<center><img src="{% static 'images/3.png' %}"></center>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="col-1-2">-->
-<!--							<div class="wrap-col">-->
-<!--								<div class="row">-->
-<!--									<div class="t-center" style="padding-top: 30px;">-->
-<!--										<div class="header">-->
-<!--											<h2>Title and subtitle</h2>-->
-<!--										</div>-->
-<!--										<strong>BECIEGAST NVERITI VITAESAERT ASETY KERTYA ASET APLICA BOSERDE NERAFAE KERTYURAUAS VITAESA. </strong><br/><br>-->
-<!--										<span>Praesent vestibulum aenean nonummy endrerit mauris. Cum sociis natoque Magnis dis parturient montes. Ascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio gravida at cursus nec luctus a lorem.</span><br/><br>-->
-<!--										<a href="#" class="button" >More Details</a>-->
-<!--									</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</section>-->
-<!--				&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;content-box-3&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--				<section class="content-box background-gray box-3 zerogrid">-->
-<!--					<div class="row wrap-box">&lt;!&ndash;Start Box&ndash;&gt;-->
-<!--						<div class="col-1-2">-->
-<!--							<div class="wrap-col">-->
-<!--								<div style="padding-top: 60px;">-->
-<!--									<center><img src="images/1.png"></center>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--						<div class="col-1-2">-->
-<!--							<div class="wrap-col">-->
-<!--								<div class="row">-->
-<!--									<div class="t-center" style="padding-top: 30px;">-->
-<!--										<div class="header">-->
-<!--											<h2>title</h2>-->
-<!--										</div>-->
-<!--										<strong>BECIEGAST NVERITI VITAESAERT ASETY KERTYA ASET APLICA BOSERDE NERAFAE KERTYURAUAS VITAESA. </strong><br/><br>-->
-<!--										<span>Praesent vestibulum aenean nonummy endrerit mauris. Cum sociis natoque Magnis dis parturient montes. Ascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio gravida at cursus nec luctus a lorem.</span><br/><br>-->
-<!--										<a href="#" class="button" >More Details</a>-->
-<!--									</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</section>-->
-<!--				&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;content-box-4&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--				<section class="content-box boxstyle-2 box-4">-->
-<!--					<div class="zerogrid">-->
-<!--						<div class="row wrap-box">&lt;!&ndash;Start Box&ndash;&gt;-->
-<!--							<div class="header">-->
-<!--								<hr class="line-1">-->
-<!--								<h2 style="color: #fff;">Latest event:</h2>-->
-<!--							</div>-->
-<!--							<div class="post">-->
-<!--								<div class="col-1-2">-->
-<!--									<img src="images/event.jpg"/>-->
-<!--								</div>-->
-<!--								<div class="col-1-2">-->
-<!--									<div class="wrapper">-->
-<!--										<h3>title </h3>-->
-<!--										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra convallis auctor. Sed accumsan libero quis mi commodo et suscipit enim lacinia. Morbi rutrum vulputate est sed faucibus.</p>-->
-<!--										<a class="button" href="#">Read More</a>-->
-<!--									</div>	-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</section>-->
 {% endblock %}
