@@ -23,8 +23,11 @@
 										<strong>{{ club_name.email }}</strong>
 										<strong>{{ club_name.area }}</strong>
 										<br><strong>{{ club_name.phone }}</strong><br/><br>
-											<center><img src="{{ club_name.image_url }}"></center>
+<!--											<center><img src="{{ images.image }}"></center>-->
+											{% for image in images %}
+										  <img src="{{ image.image_url }}" /><br>
 
+										  {% endfor %}
 									</div>
 								</div>
 							</div>

@@ -12,6 +12,10 @@ def club_categories(request, name):  # this function requires the name of a cate
 
 def club_detail(request, name):
     club_name = Club.objects.get(name=name)
-    club_images = ClubImage.objects.filter()     # id required
+    images = club_name.images.all()  # getting all images of particular club
     return render(request, 'club_detail.html', locals())
 
+
+def club_image(request, pk):
+    club_name = ClubImage.objects.get(club=pk)
+    return render(request, 'club_detail.html', locals())
