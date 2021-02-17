@@ -6,7 +6,7 @@
 		<section id="container">
 			<div class="wrap-container">
 				<!-----------------content-box-1-------------------->
-				{% for posts in post_category %}
+<!--				{% for posts in post_category %}-->
 				<section class="content-box background-gray box-1 zerogrid">
 					<div class="row wrap-box"><!--Start Box-->
 <!--						<div class="col-1-2">-->
@@ -28,7 +28,8 @@
 										</div>
 										<strong>{{ posts.sub_title | safe }}</strong><br/><br>
 										<span>{{ posts.content | safe }}</span><br/><br>
-										<img src="{{ posts.image.url }}" alt="">
+<!--										<img src="{{ posts.image.url }}" alt="">-->
+
 									</div>
 								</div>
 							</div>
@@ -36,5 +37,8 @@
 					</div>
 				</section>
 
-				{% endfor %}
+<!--										{% endfor %}-->
+<!--										{% for comment in comments %}-->
+<!--										<span>{{ comment }}</span>-->
+<!--										{% endfor %}-->
 {% endblock %}

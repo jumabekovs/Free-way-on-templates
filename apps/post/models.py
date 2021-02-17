@@ -3,7 +3,7 @@ from apps.category.models import CategoryPost
 
 
 class Post(models.Model):
-    title = models.ForeignKey(CategoryPost, related_name='posts', on_delete=models.DO_NOTHING)
+    title = models.ForeignKey(CategoryPost, related_name='post_category', on_delete=models.DO_NOTHING)
     sub_title = models.CharField(max_length=100)
     image = models.ImageField(max_length=1000, upload_to='post_images', blank=True)
     content = models.TextField()
@@ -14,7 +14,7 @@ class Post(models.Model):
 
 
 class ExtendPost(models.Model):
-    post = models.ForeignKey(Post, related_name='extend_post', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comment', on_delete=models.CASCADE)
     header = models.CharField(max_length=255, blank=True)
     text = models.TextField()
     images = models.ImageField(upload_to='post_images', blank=True)

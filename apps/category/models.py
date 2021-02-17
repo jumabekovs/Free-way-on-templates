@@ -22,7 +22,7 @@ OFFER_TYPES = (
 class CategoryPost(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True,
                                blank=True, related_name='children')
-    name = models.SlugField(max_length=100, choices=TITLE_CHOICES, blank=True, primary_key=True)
+    slug = models.SlugField(max_length=100, choices=TITLE_CHOICES, blank=True, primary_key=True)
     title = models.CharField(max_length=60, blank=True)
     logo = models.FileField(upload_to='category_logo', null=True, blank=True)
 
@@ -31,7 +31,7 @@ class CategoryPost(models.Model):
         verbose_name_plural = _('Post Categories')
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.slug}'
 
     @property
     def logo_url(self):
@@ -42,7 +42,7 @@ class CategoryPost(models.Model):
 class CategoryClub(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True,
                                blank=True, related_name='children')
-    name = models.SlugField(max_length=100, choices=TYPE_CHOICES, blank=True, primary_key=True)
+    slug = models.SlugField(max_length=100, choices=TYPE_CHOICES, blank=True, primary_key=True)
     title = models.CharField(max_length=60, blank=True)
 
     logo = models.FileField(upload_to='category_logo', null=True, blank=True)
@@ -52,13 +52,13 @@ class CategoryClub(models.Model):
         verbose_name_plural = _('Club Categories')
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.slug}'
 
 
 class CategoryOffer(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True,
                                blank=True, related_name='children')
-    name = models.SlugField(max_length=100, choices=OFFER_TYPES, blank=True, primary_key=True)
+    slug = models.SlugField(max_length=100, choices=OFFER_TYPES, blank=True, primary_key=True)
     title = models.CharField(max_length=60, blank=True)
     logo = models.FileField(upload_to='category_logo', null=True, blank=True)
 
@@ -67,9 +67,15 @@ class CategoryOffer(models.Model):
         verbose_name_plural = _('Offer Categories')
 
     def __str__(self):
-        return self.name
+        return self.slug
 
     @property
     def logo_url(self):
         if self.logo and hasattr(self.logo, 'url'):
             return self.logo.url
+
+
+
+
+
+

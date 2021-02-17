@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% for post in posts %}
+                                        <h2>{{ post.name }}<span class="color-red">{{ post.sub_title }}</span></h2>
+										</div>
+										<br/><br>
+										<span>{{ post.content | safe }}</span><br/><br>
+										<img src="{{ post.image.url }}"  style="width:400px; height:400px;"  alt="">
+    {% endfor%}
+</head>
+<body>
+
+</body>
+</html>

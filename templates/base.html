@@ -35,13 +35,13 @@
 					<li class=' has-sub'><a href=''><span>Clubs</span></a>
 					  <ul >
 						  {% for club_category in club_categories %}
-						 <li class=''><a href="{% url 'club-category' club_category.name %}"><span>{{ club_category.title }}</span></a>
+						 <li class=''><a href="{% url 'club-category' club_category.slug %}"><span>{{ club_category.title }}</span></a>
 						 </li>
 						  {% endfor %}
 					  </ul>
 				   </li>
 					<li><a href='event.html'><span>Terms</span></a></li>
-				   <li class='last'><a href=''><span>Contacts</span></a></li>
+				   <li class='last'><a href="{% url 'contact' %}"><span>Contacts</span></a></li>
 				</ul>
 			</div>
 		</header>
